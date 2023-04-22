@@ -3,6 +3,65 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:Santi.LoginApp.ViewModels"
 			 x:Class="Santi.LoginApp.Views.MainPage"
-			 x:DataType="vm:MainViewModel">
+			 x:DataType="vm:MainViewModel" BackgroundColor="#00793D">
+
+    <Grid RowDefinitions="*,*">
+        <Image Source="logo.png" HeightRequest="150"/>
+
+        <Border BackgroundColor="White" Grid.Row="1">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,0,0"/>
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Padding="20" Spacing="25">
+                <Entry 
+                    Text="{Binding Email}"
+                    FontSize="Medium" 
+                    Placeholder="E-mail" 
+                    PlaceholderColor="Black" 
+                    Keyboard="Email"
+                />
+                
+                <Entry 
+                    Text="{Binding Password}"
+                    FontSize="Medium" 
+                    Placeholder="Senha" 
+                    PlaceholderColor="Black" 
+                    IsPassword="True"
+                />
+                
+
+                <Grid>
+
+                    <Button 
+                        Command="{Binding LoginCommand}"
+                        BackgroundColor="#D95716"
+                        CornerRadius="20" 
+                        FontAttributes="Bold"
+                        FontSize="Large" 
+                        Text="Entrar" 
+                    >
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{Binding LoginCommand.IsRunning}"
+                                TargetType="Button"
+                                Value="True"
+                            >
+                                <Setter Property="Text" Value=""/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding LoginCommand.IsRunning}"
+                        IsVisible="{Binding LoginCommand.IsRunning}"
+                        VerticalOptions="Center"
+                        Color="White"
+                    />
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
 
 </ContentPage>

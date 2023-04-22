@@ -1,4 +1,7 @@
-﻿namespace Santi.LoginApp;
+﻿using Santi.LoginApp.Interfaces.Services;
+using Santi.LoginApp.Services;
+
+namespace Santi.LoginApp;
 
 public static class MauiProgram
 {
@@ -14,14 +17,12 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		builder.Services.AddScoped<ILoginService, LoginService>();
+
 		builder.Services.AddSingleton<MainViewModel>();
 
 		builder.Services.AddSingleton<MainPage>();
 
-		builder.Services.AddSingleton<BlankViewModel>();
-
-		builder.Services.AddSingleton<BlankPage>();
-
 		return builder.Build();
 	}
-}
+} 
