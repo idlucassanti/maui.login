@@ -46,12 +46,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\branco.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\teste.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.1.0" />
+	  <PackageReference Include="Flurl" Version="3.0.7" />
+	  <PackageReference Include="Flurl.Http" Version="3.2.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<PropertyGroup Label="MauiAppAccelerator">

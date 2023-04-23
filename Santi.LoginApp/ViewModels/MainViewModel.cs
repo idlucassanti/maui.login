@@ -31,4 +31,10 @@ public partial class MainViewModel
 			// TODO: Security Storage - login novamente sem ter que passar pelo processo de login
 		}
 	}
+
+	[RelayCommand]
+	public async Task CriarConta()
+	{
+		await Shell.Current.GoToAsync(nameof(RegisterPage));
+	}
 }

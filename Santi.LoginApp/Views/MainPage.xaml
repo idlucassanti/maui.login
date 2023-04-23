@@ -3,12 +3,14 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:Santi.LoginApp.ViewModels"
 			 x:Class="Santi.LoginApp.Views.MainPage"
-			 x:DataType="vm:MainViewModel" BackgroundColor="#00793D">
+			 x:DataType="vm:MainViewModel" BackgroundColor="#202024">
 
     <Grid RowDefinitions="*,*">
-        <Image Source="logo.png" HeightRequest="150"/>
+        <Image Source="branco.png" HeightRequest="30" Grid.Row="0"/>
 
-        <Border BackgroundColor="White" Grid.Row="1">
+        <!--#00793D-->
+
+        <Border BackgroundColor="white" Grid.Row="1">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="20,20,0,0"/>
             </Border.StrokeShape>
@@ -18,28 +20,27 @@
                     Text="{Binding Email}"
                     FontSize="Medium" 
                     Placeholder="E-mail" 
-                    PlaceholderColor="Black" 
+                    PlaceholderColor="#202024" 
                     Keyboard="Email"
                 />
-                
+
                 <Entry 
                     Text="{Binding Password}"
                     FontSize="Medium" 
                     Placeholder="Senha" 
-                    PlaceholderColor="Black" 
+                    PlaceholderColor="#202024" 
                     IsPassword="True"
                 />
-                
 
                 <Grid>
 
                     <Button 
                         Command="{Binding LoginCommand}"
-                        BackgroundColor="#D95716"
-                        CornerRadius="20" 
+                        BackgroundColor="#202024"
+                        CornerRadius="8" 
                         FontAttributes="Bold"
-                        FontSize="Large" 
-                        Text="Entrar" 
+                        FontSize="Medium" 
+                        Text="Acessar" 
                     >
                         <Button.Triggers>
                             <DataTrigger
@@ -60,8 +61,19 @@
                         Color="White"
                     />
                 </Grid>
+
+                <Button
+                    Grid.Row="2"
+                    BackgroundColor="White"
+                    FontSize="Medium"
+                    Text="Criar conta"
+                    TextColor="#202024"
+                    Command="{Binding CriarContaCommand}"
+                />
             </VerticalStackLayout>
         </Border>
+
+
     </Grid>
 
 </ContentPage>
